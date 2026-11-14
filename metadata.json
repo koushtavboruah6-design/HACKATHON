@@ -1,0 +1,11 @@
+{
+  "name": "MediSathi — Voice-First Prescription Companion",
+  "description": "Voice-first, multilingual AI companion helping patients in rural and semi-urban India understand and safely follow prescriptions with spoken explanations, daily schedules, safety checks, and caregiver alerts.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

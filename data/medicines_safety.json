@@ -1,0 +1,498 @@
+{
+  "datasetVersion": "1.1.0",
+  "disclaimer": "This curated reference covers 32 common primary-care medicines used in India. Indicative Jan Aushadhi prices reflect typical PMBJP Kendra rates for 10-tablet/capsule strips. Any medicine outside this dataset is marked 'not checked' and never assumed safe.",
+  "medicines": [
+    {
+      "id": "paracetamol",
+      "genericName": "Paracetamol",
+      "aliases": ["dolo", "dolo 650", "crocin", "calpol", "pacimol", "acetaminophen", "combiflam"],
+      "activeIngredients": ["paracetamol"],
+      "drugClass": "Analgesic / Antipyretic",
+      "commonUse": "Reduces fever and mild-to-moderate body pain.",
+      "allergyGroups": ["paracetamol"],
+      "cautionConditions": ["severe liver disease", "alcohol use disorder"],
+      "maxDailyMg": 4000,
+      "janAushadhi": { "genericLabel": "Paracetamol Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 8, "brandedAvgPriceInr": 34, "packSize": "15 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#FFFFFF", "scored": true, "colorKey": "white" }
+    },
+    {
+      "id": "ibuprofen",
+      "genericName": "Ibuprofen",
+      "aliases": ["brufen", "combiflam", "ibugesic"],
+      "activeIngredients": ["ibuprofen"],
+      "drugClass": "NSAID",
+      "commonUse": "Relieves pain, swelling, and fever.",
+      "allergyGroups": ["nsaid", "aspirin", "ibuprofen"],
+      "cautionConditions": ["stomach ulcer", "gastritis", "kidney disease", "asthma", "heart disease", "pregnancy"],
+      "janAushadhi": { "genericLabel": "Ibuprofen 400mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 10, "brandedAvgPriceInr": 28, "packSize": "15 tablets" },
+      "visual": { "form": "round", "primaryColor": "#F472B6", "scored": false, "colorKey": "pink" }
+    },
+    {
+      "id": "combiflam",
+      "genericName": "Ibuprofen + Paracetamol",
+      "aliases": ["combiflam", "flexon", "ibugesic plus"],
+      "activeIngredients": ["ibuprofen", "paracetamol"],
+      "drugClass": "NSAID + Analgesic Combination",
+      "commonUse": "Relieves pain, inflammation, and fever.",
+      "allergyGroups": ["nsaid", "aspirin", "ibuprofen", "paracetamol"],
+      "cautionConditions": ["stomach ulcer", "gastritis", "kidney disease", "severe liver disease", "asthma", "pregnancy"],
+      "janAushadhi": { "genericLabel": "Ibuprofen 400mg + Paracetamol 325mg (Jan Aushadhi)", "janAushadhiPriceInr": 12, "brandedAvgPriceInr": 45, "packSize": "10 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#FFFFFF", "scored": false, "colorKey": "white" }
+    },
+    {
+      "id": "aspirin",
+      "genericName": "Aspirin",
+      "aliases": ["ecosprin", "disprin", "loprin", "acetylsalicylic acid"],
+      "activeIngredients": ["aspirin"],
+      "drugClass": "Antiplatelet / NSAID",
+      "commonUse": "Keeps blood thin to protect the heart or reduces pain.",
+      "allergyGroups": ["nsaid", "aspirin", "salicylate"],
+      "cautionConditions": ["stomach ulcer", "bleeding disorder", "asthma", "dengue", "pregnancy"],
+      "janAushadhi": { "genericLabel": "Aspirin 75mg Gastro-Resistant Tablets (Jan Aushadhi)", "janAushadhiPriceInr": 5, "brandedAvgPriceInr": 14, "packSize": "14 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FACC15", "scored": false, "colorKey": "yellow" }
+    },
+    {
+      "id": "diclofenac",
+      "genericName": "Diclofenac",
+      "aliases": ["voveran", "diclomol", "reactin"],
+      "activeIngredients": ["diclofenac"],
+      "drugClass": "NSAID",
+      "commonUse": "Relieves joint, muscle, or back pain.",
+      "allergyGroups": ["nsaid", "aspirin"],
+      "cautionConditions": ["stomach ulcer", "kidney disease", "heart disease", "asthma"],
+      "janAushadhi": { "genericLabel": "Diclofenac Sodium 50mg Tablets (Jan Aushadhi)", "janAushadhiPriceInr": 8, "brandedAvgPriceInr": 36, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FB923C", "scored": false, "colorKey": "orange" }
+    },
+    {
+      "id": "aceclofenac",
+      "genericName": "Aceclofenac",
+      "aliases": ["zerodol", "hifenac", "aceclo"],
+      "activeIngredients": ["aceclofenac"],
+      "drugClass": "NSAID",
+      "commonUse": "Relieves joint pain and arthritis swelling.",
+      "allergyGroups": ["nsaid", "aspirin"],
+      "cautionConditions": ["stomach ulcer", "kidney disease", "heart disease"],
+      "janAushadhi": { "genericLabel": "Aceclofenac 100mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 11, "brandedAvgPriceInr": 62, "packSize": "10 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#FDE047", "scored": false, "colorKey": "yellow" }
+    },
+    {
+      "id": "metformin",
+      "genericName": "Metformin",
+      "aliases": ["glycomet", "glucophage", "obimet", "cetapin"],
+      "activeIngredients": ["metformin"],
+      "drugClass": "Biguanide Antidiabetic",
+      "commonUse": "Helps control high blood sugar in Type 2 diabetes.",
+      "allergyGroups": ["metformin"],
+      "cautionConditions": ["severe kidney disease", "dehydration"],
+      "janAushadhi": { "genericLabel": "Metformin Hydrochloride 500mg (Jan Aushadhi)", "janAushadhiPriceInr": 9, "brandedAvgPriceInr": 32, "packSize": "10 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#FFFFFF", "scored": true, "colorKey": "white" }
+    },
+    {
+      "id": "glimepiride",
+      "genericName": "Glimepiride",
+      "aliases": ["amaryl", "glimy", "gp", "zoryl"],
+      "activeIngredients": ["glimepiride"],
+      "drugClass": "Sulfonylurea Antidiabetic",
+      "commonUse": "Lowers blood sugar by helping the body release insulin.",
+      "allergyGroups": ["sulfa", "sulfonylurea"],
+      "cautionConditions": ["low blood sugar", "kidney disease", "liver disease"],
+      "janAushadhi": { "genericLabel": "Glimepiride 2mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 9, "brandedAvgPriceInr": 85, "packSize": "10 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#86EFAC", "scored": true, "colorKey": "green" }
+    },
+    {
+      "id": "amlodipine",
+      "genericName": "Amlodipine",
+      "aliases": ["amlong", "stamlo", "amlokind", "amlopres"],
+      "activeIngredients": ["amlodipine"],
+      "drugClass": "Calcium Channel Blocker",
+      "commonUse": "Lowers high blood pressure and eases heart workload.",
+      "allergyGroups": ["amlodipine"],
+      "cautionConditions": ["very low blood pressure", "severe liver disease"],
+      "janAushadhi": { "genericLabel": "Amlodipine 5mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 6, "brandedAvgPriceInr": 38, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FFFFFF", "scored": false, "colorKey": "white" }
+    },
+    {
+      "id": "telmisartan",
+      "genericName": "Telmisartan",
+      "aliases": ["telma", "telmikind", "telsartan", "cresar"],
+      "activeIngredients": ["telmisartan"],
+      "drugClass": "ARB Antihypertensive",
+      "commonUse": "Controls high blood pressure and protects kidneys.",
+      "allergyGroups": ["arb"],
+      "cautionConditions": ["pregnancy", "high potassium", "kidney disease"],
+      "janAushadhi": { "genericLabel": "Telmisartan 40mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 12, "brandedAvgPriceInr": 115, "packSize": "10 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#F8FAFC", "scored": false, "colorKey": "white" }
+    },
+    {
+      "id": "losartan",
+      "genericName": "Losartan",
+      "aliases": ["losar", "repace", "covance"],
+      "activeIngredients": ["losartan"],
+      "drugClass": "ARB Antihypertensive",
+      "commonUse": "Lowers high blood pressure and protects heart and kidneys.",
+      "allergyGroups": ["arb"],
+      "cautionConditions": ["pregnancy", "high potassium", "kidney disease"],
+      "janAushadhi": { "genericLabel": "Losartan Potassium 50mg Tablets (Jan Aushadhi)", "janAushadhiPriceInr": 11, "brandedAvgPriceInr": 78, "packSize": "10 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#FFFFFF", "scored": true, "colorKey": "white" }
+    },
+    {
+      "id": "enalapril",
+      "genericName": "Enalapril",
+      "aliases": ["envas", "enam"],
+      "activeIngredients": ["enalapril"],
+      "drugClass": "ACE Inhibitor",
+      "commonUse": "Treats high blood pressure and heart weakness.",
+      "allergyGroups": ["ace inhibitor"],
+      "cautionConditions": ["pregnancy", "angioedema", "high potassium"],
+      "janAushadhi": { "genericLabel": "Enalapril Maleate 5mg Tablets (Jan Aushadhi)", "janAushadhiPriceInr": 7, "brandedAvgPriceInr": 42, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FDBA74", "scored": true, "colorKey": "orange" }
+    },
+    {
+      "id": "atenolol",
+      "genericName": "Atenolol",
+      "aliases": ["aten", "betacard", "tenormin"],
+      "activeIngredients": ["atenolol"],
+      "drugClass": "Beta Blocker",
+      "commonUse": "Slows heart rate and controls high blood pressure.",
+      "allergyGroups": ["beta blocker"],
+      "cautionConditions": ["asthma", "very slow heart rate", "low blood pressure"],
+      "janAushadhi": { "genericLabel": "Atenolol 50mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 7, "brandedAvgPriceInr": 31, "packSize": "14 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FFFFFF", "scored": true, "colorKey": "white" }
+    },
+    {
+      "id": "atorvastatin",
+      "genericName": "Atorvastatin",
+      "aliases": ["atorva", "tonact", "storvas", "lipitor"],
+      "activeIngredients": ["atorvastatin"],
+      "drugClass": "Statin",
+      "commonUse": "Lowers cholesterol to protect blood vessels and heart.",
+      "allergyGroups": ["statin"],
+      "cautionConditions": ["pregnancy", "active liver disease"],
+      "janAushadhi": { "genericLabel": "Atorvastatin 10mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 10, "brandedAvgPriceInr": 74, "packSize": "10 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#FFFFFF", "scored": false, "colorKey": "white" }
+    },
+    {
+      "id": "rosuvastatin",
+      "genericName": "Rosuvastatin",
+      "aliases": ["rosuvas", "rozavel", "crestor"],
+      "activeIngredients": ["rosuvastatin"],
+      "drugClass": "Statin",
+      "commonUse": "Lowers bad cholesterol and prevents heart blockage.",
+      "allergyGroups": ["statin"],
+      "cautionConditions": ["pregnancy", "active liver disease"],
+      "janAushadhi": { "genericLabel": "Rosuvastatin 10mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 16, "brandedAvgPriceInr": 145, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#F9A8D4", "scored": false, "colorKey": "pink" }
+    },
+    {
+      "id": "clopidogrel",
+      "genericName": "Clopidogrel",
+      "aliases": ["clopilet", "plavix", "deplatt", "noklot"],
+      "activeIngredients": ["clopidogrel"],
+      "drugClass": "Antiplatelet",
+      "commonUse": "Prevents dangerous blood clots in heart or brain vessels.",
+      "allergyGroups": ["clopidogrel"],
+      "cautionConditions": ["bleeding disorder", "stomach ulcer"],
+      "janAushadhi": { "genericLabel": "Clopidogrel 75mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 16, "brandedAvgPriceInr": 95, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#F472B6", "scored": false, "colorKey": "pink" }
+    },
+    {
+      "id": "omeprazole",
+      "genericName": "Omeprazole",
+      "aliases": ["omez", "omee", "prilosec"],
+      "activeIngredients": ["omeprazole"],
+      "drugClass": "Proton Pump Inhibitor",
+      "commonUse": "Reduces stomach acid and prevents heartburn or ulcers.",
+      "allergyGroups": ["ppi", "omeprazole"],
+      "cautionConditions": ["severe liver disease"],
+      "janAushadhi": { "genericLabel": "Omeprazole 20mg Capsules IP (Jan Aushadhi)", "janAushadhiPriceInr": 11, "brandedAvgPriceInr": 58, "packSize": "15 capsules" },
+      "visual": { "form": "capsule", "primaryColor": "#EC4899", "secondaryColor": "#FFFFFF", "colorKey": "pink", "secondaryColorKey": "white" }
+    },
+    {
+      "id": "pantoprazole",
+      "genericName": "Pantoprazole",
+      "aliases": ["pan 40", "pan-d", "pantocid", "pantodac"],
+      "activeIngredients": ["pantoprazole"],
+      "drugClass": "Proton Pump Inhibitor",
+      "commonUse": "Lowers stomach acid before meals to soothe acidity.",
+      "allergyGroups": ["ppi", "pantoprazole"],
+      "cautionConditions": ["severe liver disease"],
+      "janAushadhi": { "genericLabel": "Pantoprazole 40mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 12, "brandedAvgPriceInr": 118, "packSize": "10 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#FDE047", "scored": false, "colorKey": "yellow" }
+    },
+    {
+      "id": "amoxicillin",
+      "genericName": "Amoxicillin",
+      "aliases": ["mox", "almox", "novamox", "augmentin", "moxikind"],
+      "activeIngredients": ["amoxicillin"],
+      "drugClass": "Penicillin Antibiotic",
+      "commonUse": "Fights bacterial infections in throat, chest, ear, or skin.",
+      "allergyGroups": ["penicillin", "amoxicillin", "beta-lactam"],
+      "cautionConditions": ["penicillin allergy"],
+      "janAushadhi": { "genericLabel": "Amoxycillin 500mg Capsules IP (Jan Aushadhi)", "janAushadhiPriceInr": 24, "brandedAvgPriceInr": 89, "packSize": "10 capsules" },
+      "visual": { "form": "capsule", "primaryColor": "#DC2626", "secondaryColor": "#FACC15", "colorKey": "red", "secondaryColorKey": "yellow" }
+    },
+    {
+      "id": "azithromycin",
+      "genericName": "Azithromycin",
+      "aliases": ["azee", "azithral", "aziwok", "zithromax"],
+      "activeIngredients": ["azithromycin"],
+      "drugClass": "Macrolide Antibiotic",
+      "commonUse": "Treats bacterial throat, chest, and ear infections.",
+      "allergyGroups": ["macrolide", "azithromycin"],
+      "cautionConditions": ["heart rhythm problem", "liver disease"],
+      "janAushadhi": { "genericLabel": "Azithromycin 500mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 32, "brandedAvgPriceInr": 119, "packSize": "5 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#FFFFFF", "scored": false, "colorKey": "white" }
+    },
+    {
+      "id": "ciprofloxacin",
+      "genericName": "Ciprofloxacin",
+      "aliases": ["ciplox", "cifran", "cipro"],
+      "activeIngredients": ["ciprofloxacin"],
+      "drugClass": "Fluoroquinolone Antibiotic",
+      "commonUse": "Treats urinary and gut bacterial infections.",
+      "allergyGroups": ["fluoroquinolone", "ciprofloxacin"],
+      "cautionConditions": ["tendon injury", "pregnancy", "epilepsy"],
+      "janAushadhi": { "genericLabel": "Ciprofloxacin 500mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 18, "brandedAvgPriceInr": 48, "packSize": "10 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#FEF9C3", "scored": true, "colorKey": "cream" }
+    },
+    {
+      "id": "metronidazole",
+      "genericName": "Metronidazole",
+      "aliases": ["flagyl", "metrogyl", "aristogyl"],
+      "activeIngredients": ["metronidazole"],
+      "drugClass": "Nitroimidazole Antimicrobial",
+      "commonUse": "Treats stomach, gut, and dental infections.",
+      "allergyGroups": ["metronidazole"],
+      "cautionConditions": ["alcohol use", "liver disease", "pregnancy"],
+      "janAushadhi": { "genericLabel": "Metronidazole 400mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 11, "brandedAvgPriceInr": 25, "packSize": "15 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FDE047", "scored": false, "colorKey": "yellow" }
+    },
+    {
+      "id": "cetirizine",
+      "genericName": "Cetirizine",
+      "aliases": ["cetzine", "okacet", "alerid", "zyrtec"],
+      "activeIngredients": ["cetirizine"],
+      "drugClass": "Antihistamine",
+      "commonUse": "Stops sneezing, runny nose, itching, and skin allergy.",
+      "allergyGroups": ["antihistamine", "cetirizine"],
+      "cautionConditions": ["severe kidney disease"],
+      "janAushadhi": { "genericLabel": "Cetirizine 10mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 5, "brandedAvgPriceInr": 22, "packSize": "10 tablets" },
+      "visual": { "form": "oval", "primaryColor": "#FFFFFF", "scored": true, "colorKey": "white" }
+    },
+    {
+      "id": "levocetirizine",
+      "genericName": "Levocetirizine",
+      "aliases": ["levocet", "montair lc", "xyzal", "teczine"],
+      "activeIngredients": ["levocetirizine"],
+      "drugClass": "Antihistamine",
+      "commonUse": "Relieves allergy symptoms with less daytime drowsiness.",
+      "allergyGroups": ["antihistamine", "cetirizine"],
+      "cautionConditions": ["severe kidney disease"],
+      "janAushadhi": { "genericLabel": "Levocetirizine 5mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 8, "brandedAvgPriceInr": 64, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FFFFFF", "scored": false, "colorKey": "white" }
+    },
+    {
+      "id": "montelukast",
+      "genericName": "Montelukast",
+      "aliases": ["montair", "telekast", "singulair"],
+      "activeIngredients": ["montelukast"],
+      "drugClass": "Leukotriene Blocker",
+      "commonUse": "Prevents wheezing, asthma flare-ups, and nasal allergy.",
+      "allergyGroups": ["montelukast"],
+      "cautionConditions": ["mood changes"],
+      "janAushadhi": { "genericLabel": "Montelukast 10mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 18, "brandedAvgPriceInr": 135, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FDE68A", "scored": false, "colorKey": "cream" }
+    },
+    {
+      "id": "salbutamol",
+      "genericName": "Salbutamol",
+      "aliases": ["asthalin", "ventolin", "albuterol"],
+      "activeIngredients": ["salbutamol"],
+      "drugClass": "Bronchodilator",
+      "commonUse": "Opens tight airways during wheezing or breathlessness.",
+      "allergyGroups": ["salbutamol"],
+      "cautionConditions": ["heart rhythm problem", "thyroid excess"],
+      "janAushadhi": { "genericLabel": "Salbutamol 4mg Tablets / Inhaler (Jan Aushadhi)", "janAushadhiPriceInr": 9, "brandedAvgPriceInr": 24, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#F9A8D4", "scored": false, "colorKey": "pink" }
+    },
+    {
+      "id": "prednisolone",
+      "genericName": "Prednisolone",
+      "aliases": ["wysolone", "omnacortil"],
+      "activeIngredients": ["prednisolone"],
+      "drugClass": "Corticosteroid",
+      "commonUse": "Calms strong swelling, severe allergy, or breathing flare-ups.",
+      "allergyGroups": ["steroid"],
+      "cautionConditions": ["diabetes", "stomach ulcer", "high blood pressure"],
+      "janAushadhi": { "genericLabel": "Prednisolone 10mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 9, "brandedAvgPriceInr": 28, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FFFFFF", "scored": true, "colorKey": "white" }
+    },
+    {
+      "id": "furosemide",
+      "genericName": "Furosemide",
+      "aliases": ["lasix", "frusenex"],
+      "activeIngredients": ["furosemide"],
+      "drugClass": "Loop Diuretic",
+      "commonUse": "Removes extra water and swelling from legs or lungs.",
+      "allergyGroups": ["sulfa", "furosemide"],
+      "cautionConditions": ["dehydration", "low potassium", "sulfa allergy"],
+      "janAushadhi": { "genericLabel": "Furosemide 40mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 6, "brandedAvgPriceInr": 19, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FFFFFF", "scored": true, "colorKey": "white" }
+    },
+    {
+      "id": "levothyroxine",
+      "genericName": "Levothyroxine",
+      "aliases": ["thyronorm", "eltroxin", "thyrox"],
+      "activeIngredients": ["levothyroxine"],
+      "drugClass": "Thyroid Hormone",
+      "commonUse": "Replaces low thyroid hormone; taken empty stomach in morning.",
+      "allergyGroups": ["levothyroxine"],
+      "cautionConditions": ["heart rhythm problem"],
+      "janAushadhi": { "genericLabel": "Thyroxine Sodium 50mcg Tablets (Jan Aushadhi)", "janAushadhiPriceInr": 16, "brandedAvgPriceInr": 112, "packSize": "100 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FFFFFF", "scored": false, "colorKey": "white" }
+    },
+    {
+      "id": "domperidone",
+      "genericName": "Domperidone",
+      "aliases": ["domstal", "vomistop", "pan-d"],
+      "activeIngredients": ["domperidone"],
+      "drugClass": "Anti-emetic / Prokinetic",
+      "commonUse": "Stops nausea, vomiting, and stomach fullness.",
+      "allergyGroups": ["domperidone"],
+      "cautionConditions": ["heart rhythm problem", "severe liver disease"],
+      "janAushadhi": { "genericLabel": "Domperidone 10mg Tablets IP (Jan Aushadhi)", "janAushadhiPriceInr": 7, "brandedAvgPriceInr": 34, "packSize": "10 tablets" },
+      "visual": { "form": "round", "primaryColor": "#FFFFFF", "scored": false, "colorKey": "white" }
+    },
+    {
+      "id": "ferrous_sulfate",
+      "genericName": "Iron + Folic Acid",
+      "aliases": ["autrin", "fefol", "livogen", "ferrous sulfate", "iron tablet"],
+      "activeIngredients": ["iron", "folic acid"],
+      "drugClass": "Nutritional Supplement",
+      "commonUse": "Builds red blood cells to treat anaemia and tiredness.",
+      "allergyGroups": ["iron"],
+      "cautionConditions": ["iron overload"],
+      "janAushadhi": { "genericLabel": "Ferrous Sulphate + Folic Acid (Jan Aushadhi)", "janAushadhiPriceInr": 9, "brandedAvgPriceInr": 54, "packSize": "15 tablets" },
+      "visual": { "form": "round", "primaryColor": "#991B1B", "scored": false, "colorKey": "maroon" }
+    },
+    {
+      "id": "ors",
+      "genericName": "Oral Rehydration Salts (ORS)",
+      "aliases": ["electral", "ors", "enerzal"],
+      "activeIngredients": ["sodium chloride", "potassium chloride", "glucose"],
+      "drugClass": "Electrolyte Solution",
+      "commonUse": "Replaces lost water and salts during loose motions or heat.",
+      "allergyGroups": [],
+      "cautionConditions": ["severe kidney failure"],
+      "janAushadhi": { "genericLabel": "ORS Powder WHO Formula (Jan Aushadhi)", "janAushadhiPriceInr": 6, "brandedAvgPriceInr": 22, "packSize": "1 sachet (21.8g)" },
+      "visual": { "form": "sachet", "primaryColor": "#F97316", "secondaryColor": "#FFFFFF", "colorKey": "orange" }
+    }
+  ],
+  "interactions": [
+    {
+      "pair": ["ibuprofen", "aspirin"],
+      "severity": "high",
+      "title": "Increased Stomach Bleeding & Reduced Heart Protection",
+      "explanation": "Taking Ibuprofen with Aspirin raises the chance of stomach bleeding and can block low-dose Aspirin from protecting the heart.",
+      "action": "Ask your doctor or pharmacist before taking both painkillers together."
+    },
+    {
+      "pair": ["diclofenac", "aspirin"],
+      "severity": "high",
+      "title": "NSAID + Aspirin Bleeding Risk",
+      "explanation": "Combining Diclofenac and Aspirin increases stomach irritation and bleeding risk.",
+      "action": "Check with your doctor before combining these two medicines."
+    },
+    {
+      "pair": ["aceclofenac", "aspirin"],
+      "severity": "high",
+      "title": "NSAID + Aspirin Bleeding Risk",
+      "explanation": "Taking Aceclofenac alongside Aspirin increases stomach ulcer and bleeding risk.",
+      "action": "Confirm with your doctor whether both are needed."
+    },
+    {
+      "pair": ["ibuprofen", "diclofenac"],
+      "severity": "high",
+      "title": "Two NSAID Painkillers Together",
+      "explanation": "Ibuprofen and Diclofenac belong to the same painkiller family and together can harm the stomach and kidneys.",
+      "action": "Do not combine two NSAID painkillers without a doctor's advice."
+    },
+    {
+      "pair": ["clopidogrel", "omeprazole"],
+      "severity": "high",
+      "title": "Reduced Blood Thinner Effect",
+      "explanation": "Omeprazole can make Clopidogrel less effective at preventing blood clots.",
+      "action": "Ask your doctor if Pantoprazole or another stomach medicine is safer for you."
+    },
+    {
+      "pair": ["clopidogrel", "aspirin"],
+      "severity": "moderate",
+      "title": "Dual Blood Thinner Monitoring",
+      "explanation": "Taking both Clopidogrel and Aspirin thins blood strongly and increases bruising or bleeding risk.",
+      "action": "Only take both if specifically prescribed by your heart doctor."
+    },
+    {
+      "pair": ["clopidogrel", "ibuprofen"],
+      "severity": "high",
+      "title": "High Bleeding Risk",
+      "explanation": "Ibuprofen plus Clopidogrel sharply raises stomach bleeding risk.",
+      "action": "Contact your doctor or pharmacist before taking Ibuprofen."
+    },
+    {
+      "pair": ["telmisartan", "ibuprofen"],
+      "severity": "moderate",
+      "title": "Blood Pressure & Kidney Strain",
+      "explanation": "Ibuprofen can weaken Telmisartan's blood pressure control and strain the kidneys.",
+      "action": "Ask your doctor before taking frequent NSAID painkillers."
+    },
+    {
+      "pair": ["losartan", "ibuprofen"],
+      "severity": "moderate",
+      "title": "Blood Pressure & Kidney Strain",
+      "explanation": "Ibuprofen can lower Losartan's effect and put extra stress on kidneys.",
+      "action": "Confirm safe pain relief options with your doctor."
+    },
+    {
+      "pair": ["atenolol", "amlodipine"],
+      "severity": "moderate",
+      "title": "Combined Blood Pressure Lowering",
+      "explanation": "Together they can lower blood pressure too much or cause dizziness when standing up.",
+      "action": "Stand up slowly and report dizziness to your doctor."
+    },
+    {
+      "pair": ["metformin", "glimepiride"],
+      "severity": "moderate",
+      "title": "Monitor for Low Blood Sugar",
+      "explanation": "Both medicines lower blood sugar; skipping meals can cause sweating, shakiness, or dizziness.",
+      "action": "Take with or after meals as advised and watch for low sugar signs."
+    },
+    {
+      "pair": ["azithromycin", "domperidone"],
+      "severity": "high",
+      "title": "Heart Rhythm Caution",
+      "explanation": "Combining Azithromycin and Domperidone can affect heart rhythm in some patients.",
+      "action": "Confirm with your doctor or pharmacist before taking together."
+    },
+    {
+      "pair": ["prednisolone", "ibuprofen"],
+      "severity": "high",
+      "title": "Stomach Ulcer & Bleeding Risk",
+      "explanation": "Steroids like Prednisolone combined with Ibuprofen greatly raise stomach ulcer risk.",
+      "action": "Check with your doctor about stomach protection."
+    },
+    {
+      "pair": ["iron", "levothyroxine"],
+      "severity": "moderate",
+      "title": "Absorption Blocking",
+      "explanation": "Iron tablets stop thyroid medicine from absorbing properly if taken together.",
+      "action": "Space Iron and Levothyroxine at least 4 hours apart."
+    },
+    {
+      "pair": ["iron", "ciprofloxacin"],
+      "severity": "moderate",
+      "title": "Reduced Antibiotic Absorption",
+      "explanation": "Iron blocks Ciprofloxacin from entering the body cleanly.",
+      "action": "Take these at least 2 to 4 hours apart."
+    }
+  ]
+}

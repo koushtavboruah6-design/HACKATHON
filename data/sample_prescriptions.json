@@ -1,0 +1,388 @@
+{
+  "samples": [
+    {
+      "id": "sample-chronic",
+      "title": "Diabetes & Blood Pressure (Guwahati Clinic)",
+      "subtitle": "4 medicines · Morning, Afternoon & Night",
+      "imageUrl": "/samples/sample-chronic.jpg",
+      "clinicTitle": "Guwahati Community Clinic — Dr. A. Baruah",
+      "overallConfidence": "high",
+      "medicines": [
+        {
+          "name": "Tab Metformin",
+          "activeIngredient": "metformin",
+          "strength": "500mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "1-0-1",
+          "slots": ["morning", "night"],
+          "foodTiming": "after_food",
+          "durationDays": 30,
+          "specialInstructions": "Maintain diabetic diet and regular walking.",
+          "confidence": "high",
+          "explanations": {
+            "en": {
+              "usedFor": "Generally used to keep blood sugar steady in Type 2 diabetes.",
+              "howAndWhen": "Take 1 tablet in the morning and 1 tablet at night, right after eating a meal.",
+              "whatToAvoid": "Do not take on an empty stomach and avoid skipping meals after taking it.",
+              "whenToCallDoctor": "Call a doctor if you feel dizzy, very weak, or have lasting stomach upset. Please confirm with your doctor or pharmacist."
+            },
+            "hi": {
+              "usedFor": "यह दवा आमतौर पर टाइप 2 शुगर (डायबिटीज़) को नियंत्रण में रखने के लिए दी जाती है।",
+              "howAndWhen": "सुबह नाश्ते के बाद 1 गोली और रात के खाने के बाद 1 गोली पानी के साथ लें।",
+              "whatToAvoid": "खाली पेट न लें और दवा लेने के बाद खाना न छोड़ें।",
+              "whenToCallDoctor": "यदि चक्कर आएं, बहुत कमजोरी लगे या पेट में लगातार दर्द हो तो डॉक्टर को बताएं। कृपया अपने डॉक्टर या फ़ार्मासिस्ट से पुष्टि जरूर करें।"
+            },
+            "as": {
+              "usedFor": "এই দৰৱবিধ সাধাৰণতে ডায়েবেটিছত তেজৰ চেনিৰ পৰিমাণ নিয়ন্ত্ৰণত ৰাখিবলৈ ব্যৱহাৰ কৰা হয়।",
+              "howAndWhen": "ৰাতিপুৱা আহাৰ খোৱাৰ পাছত ১টা বড়ি আৰু ৰাতি আহাৰ খোৱাৰ পাছত ১টা বড়ি খাওক।",
+              "whatToAvoid": "খালী পেটত নাখাব আৰু দৰৱ খোৱাৰ পাছত আহাৰ বাদ নিদিব।",
+              "whenToCallDoctor": "মূৰ ঘূৰালে, অতি দুৰ্বল অনুভৱ কৰিলে বা পেটৰ অসুবিধা হ’লে চিকিৎসকৰ লগত যোগাযোগ কৰক। অনুগ্ৰহ কৰি আপোনাৰ চিকিৎসক বা ফাৰ্মাচিষ্টৰ সৈতে নিশ্চিত কৰি ল’ব।"
+            },
+            "bn": {
+              "usedFor": "এই ওষুধটি সাধারণত ডায়াবেটিসে রক্তের শর্করা নিয়ন্ত্রণে রাখতে ব্যবহার করা হয়।",
+              "howAndWhen": "সকালে খাওয়ার পর ১টি ট্যাবলেট এবং রাতে খাওয়ার পর ১টি ট্যাবলেট খাবেন।",
+              "whatToAvoid": "খালি পেটে খাবেন না এবং ওষুধ খাওয়ার পর খাবার বাদ দেবেন না।",
+              "whenToCallDoctor": "মাথা ঘুরলে, খুব দুর্বল লাগলে বা পেটে সমস্যা হলে ডাক্তারের সাথে কথা বলুন। অনুগ্রহ করে আপনার ডাক্তার বা ফার্মাসিস্টের সাথে নিশ্চিত করে নিন।"
+            }
+          }
+        },
+        {
+          "name": "Tab Amlodipine",
+          "activeIngredient": "amlodipine",
+          "strength": "5mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "1-0-0",
+          "slots": ["morning"],
+          "foodTiming": "after_food",
+          "durationDays": 30,
+          "specialInstructions": "Take around the same time each morning.",
+          "confidence": "high",
+          "explanations": {
+            "en": {
+              "usedFor": "Generally used to lower high blood pressure and keep the heart calm.",
+              "howAndWhen": "Take 1 tablet every morning after breakfast with water.",
+              "whatToAvoid": "Stand up slowly from sitting or lying down so you do not feel dizzy.",
+              "whenToCallDoctor": "Tell a doctor if your ankles swell or you feel faint. Please confirm with your doctor or pharmacist."
+            },
+            "hi": {
+              "usedFor": "यह दवा आमतौर पर बढ़े हुए ब्लड प्रेशर को कम करने और दिल की रक्षा करने में मदद करती है।",
+              "howAndWhen": "हर सुबह नाश्ते के बाद 1 गोली पानी के साथ लें।",
+              "whatToAvoid": "लेटने या बैठने के बाद धीरे उठें ताकि चक्कर न आएं।",
+              "whenToCallDoctor": "अगर पैरों में सूजन आए या बेहोशी जैसा लगे तो डॉक्टर को दिखाएं। कृपया अपने डॉक्टर या फ़ार्मासिस्ट से पुष्टि जरूर करें।"
+            },
+            "as": {
+              "usedFor": "এই দৰৱবিধ সাধাৰণতে উচ্চ ৰক্তচাপ কমাবলৈ আৰু হৃদযন্ত্ৰ সুস্থ ৰাখিবলৈ ব্যৱহাৰ কৰা হয়।",
+              "howAndWhen": "প্ৰতিদিনে ৰাতিপুৱা জলপান খোৱাৰ পাছত ১টা বড়ি পানীৰ সৈতে খাওক।",
+              "whatToAvoid": "বহা বা শুই থকাৰ পৰা লাহে লাহে উঠিব যাতে মূৰ নুঘূৰে।",
+              "whenToCallDoctor": "ভৰিৰ গোৰোহা ফুলিলে বা বেছি মূৰ ঘূৰালে চিকিৎসকক জনাওক। অনুগ্ৰহ কৰি আপোনাৰ চিকিৎসক বা ফাৰ্মাচিষ্টৰ সৈতে নিশ্চিত কৰি ল’ব।"
+            },
+            "bn": {
+              "usedFor": "এই ওষুধটি সাধারণত উচ্চ রক্তচাপ কমাতে এবং হৃদযন্ত্র ভালো রাখতে সাহায্য করে।",
+              "howAndWhen": "প্রতিদিন সকালে নাস্তার পর ১টি ট্যাবলেট পানির সাথে খাবেন।",
+              "whatToAvoid": "বসা বা শোওয়া অবস্থা থেকে ধীরে উঠুন যাতে মাথা না ঘোরে।",
+              "whenToCallDoctor": "পা ফুলে গেলে বা মাথা ঘুরে পড়ে যাওয়ার মতো লাগলে ডাক্তারকে জানান। অনুগ্রহ করে আপনার ডাক্তার বা ফার্মাসিস্টের সাথে নিশ্চিত করে নিন।"
+            }
+          }
+        },
+        {
+          "name": "Tab Atorvastatin",
+          "activeIngredient": "atorvastatin",
+          "strength": "10mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "0-0-1",
+          "slots": ["night"],
+          "foodTiming": "after_food",
+          "durationDays": 30,
+          "specialInstructions": "Best taken at bedtime.",
+          "confidence": "high",
+          "explanations": {
+            "en": {
+              "usedFor": "Generally used to lower bad cholesterol and protect blood vessels.",
+              "howAndWhen": "Take 1 tablet at night after dinner or before sleeping.",
+              "whatToAvoid": "Avoid heavy alcohol and do not double the dose if you miss a night.",
+              "whenToCallDoctor": "Contact a doctor if you feel unusual muscle pain or yellowing of eyes. Please confirm with your doctor or pharmacist."
+            },
+            "hi": {
+              "usedFor": "यह दवा आमतौर पर शरीर में खराब कोलेस्ट्रॉल कम करके नसों को साफ रखने में मदद करती है।",
+              "howAndWhen": "रात के खाने के बाद या सोने से पहले 1 गोली लें।",
+              "whatToAvoid": "शराब से बचें और अगर एक खुराक छूट जाए तो अगली बार दोगुनी गोली न लें।",
+              "whenToCallDoctor": "अगर मांसपेशियों में तेज दर्द हो या आंखें पीली दिखें तो डॉक्टर से मिलें। कृपया अपने डॉक्टर या फ़ार्मासिस्ट से पुष्टि जरूर करें।"
+            },
+            "as": {
+              "usedFor": "এই দৰৱবিধ সাধাৰণতে তেজৰ বেয়া চৰ্বি (কলেষ্টেৰল) কমাবলৈ ব্যৱহাৰ কৰা হয়।",
+              "howAndWhen": "ৰাতি আহাৰ খোৱাৰ পাছত বা শোৱাৰ আগতে ১টা বড়ি খাওক।",
+              "whatToAvoid": "মদ নাখাব আৰু এটা পালি পাহৰিলে পাছদিনা দুটা বড়ি নাখাব।",
+              "whenToCallDoctor": "মাংসপেশীত অস্বাভাৱিক বিষ হ’লে বা চকু হালধীয়া হ’লে চিকিৎসকক জনাওক। অনুগ্ৰহ কৰি আপোনাৰ চিকিৎসক বা ফাৰ্মাচিষ্টৰ সৈতে নিশ্চিত কৰি ল’ব।"
+            },
+            "bn": {
+              "usedFor": "এই ওষুধটি সাধারণত রক্তের খারাপ কোলেস্টেরল কমাতে এবং রক্তনালী সুরক্ষিত রাখতে ব্যবহৃত হয়।",
+              "howAndWhen": "রাতে খাওয়ার পর বা ঘুমানোর আগে ১টি ট্যাবলেট খাবেন।",
+              "whatToAvoid": "মদ্যপান এড়িয়ে চলুন এবং কোনো ডোজ ভুলে গেলে পরের বার দ্বিগুণ খাবেন না।",
+              "whenToCallDoctor": "পেশিতে অস্বাভাবিক ব্যথা হলে বা চোখ হলুদ দেখালে ডাক্তারের পরামর্শ নিন। অনুগ্রহ করে আপনার ডাক্তার বা ফার্মাসিস্টের সাথে নিশ্চিত করে নিন।"
+            }
+          }
+        },
+        {
+          "name": "Tab Aspirin",
+          "activeIngredient": "aspirin",
+          "strength": "75mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "0-1-0",
+          "slots": ["afternoon"],
+          "foodTiming": "after_food",
+          "durationDays": 30,
+          "specialInstructions": "Take after lunch to protect stomach.",
+          "confidence": "high",
+          "explanations": {
+            "en": {
+              "usedFor": "Generally used in low dose to keep blood flowing smoothly and protect the heart.",
+              "howAndWhen": "Take 1 tablet in the afternoon right after lunch.",
+              "whatToAvoid": "Do not take on an empty stomach or add extra painkillers without asking.",
+              "whenToCallDoctor": "Call a doctor right away if you notice black stools, nosebleeds, or stomach pain. Please confirm with your doctor or pharmacist."
+            },
+            "hi": {
+              "usedFor": "कम मात्रा में यह दवा आमतौर पर खून को पतला रखकर दिल की सुरक्षा के लिए दी जाती है।",
+              "howAndWhen": "दोपहर के खाने के तुरंत बाद 1 गोली पानी के साथ लें।",
+              "whatToAvoid": "खाली पेट न लें और बिना पूछे कोई दूसरी दर्द की गोली साथ न खाएं।",
+              "whenToCallDoctor": "अगर काला मल दिखे, नाक से खून आए या पेट में जलन हो तो तुरंत डॉक्टर को बताएं। कृपया अपने डॉक्टर या फ़ार्मासिस्ट से पुष्टि जरूर करें।"
+            },
+            "as": {
+              "usedFor": "কম পৰিমাণত এই দৰৱবিধ সাধাৰণতে তেজ পাতল ৰাখি হৃদযন্ত্ৰ সুৰক্ষিত কৰিবলৈ দিয়া হয়।",
+              "howAndWhen": "দুপৰীয়া ভাত খোৱাৰ ঠিক পাছত ১টা বড়ি পানীৰ সৈতে খাওক।",
+              "whatToAvoid": "খালী পেটত নাখাব আৰু সুধি নোলোৱাকৈ অন্য বিষৰ দৰৱ একেলগে নাখাব।",
+              "whenToCallDoctor": "ক’লা শৌচ, নাকৰ পৰা তেজ ওলোৱা বা পেটৰ বিষ হ’লে লগে লগে চিকিৎসকক জনাওক। অনুগ্ৰহ কৰি আপোনাৰ চিকিৎসক বা ফাৰ্মাচিষ্টৰ সৈতে নিশ্চিত কৰি ল’ব।"
+            },
+            "bn": {
+              "usedFor": "কম মাত্রায় এই ওষুধটি সাধারণত রক্ত তরল রেখে হৃদযন্ত্রকে সুরক্ষিত রাখতে দেওয়া হয়।",
+              "howAndWhen": "দুপুরে খাওয়ার ঠিক পর ১টি ট্যাবলেট পানির সাথে খাবেন।",
+              "whatToAvoid": "খালি পেটে খাবেন না এবং পরামর্শ ছাড়া অন্য ব্যথার ওষুধ একসাথে খাবেন না।",
+              "whenToCallDoctor": "কালো পায়খানা, নাক দিয়ে রক্ত পড়া বা পেট ব্যথা হলে দ্রুত ডাক্তারকে জানান। অনুগ্রহ করে আপনার ডাক্তার বা ফার্মাসিস্টের সাথে নিশ্চিত করে নিন।"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "sample-acute",
+      "title": "Fever & Throat Infection (PHC OPD)",
+      "subtitle": "4 medicines · Before-food + Antibiotic course",
+      "imageUrl": "/samples/sample-acute.jpg",
+      "clinicTitle": "Primary Health Centre — Dr. S. Sharma",
+      "overallConfidence": "medium",
+      "medicines": [
+        {
+          "name": "Cap Omeprazole",
+          "activeIngredient": "omeprazole",
+          "strength": "20mg",
+          "doseAmount": "1 capsule",
+          "frequencyCode": "1-0-0",
+          "slots": ["morning"],
+          "foodTiming": "before_food",
+          "durationDays": 5,
+          "specialInstructions": "Take 30 minutes before breakfast.",
+          "confidence": "high",
+          "explanations": {
+            "en": {
+              "usedFor": "Generally used to lower stomach acid and protect your stomach from other medicines.",
+              "howAndWhen": "Swallow 1 capsule in the morning 30 minutes before eating breakfast.",
+              "whatToAvoid": "Do not crush or open the capsule; swallow it whole with water.",
+              "whenToCallDoctor": "Tell a doctor if severe stomach pain or watery diarrhea begins. Please confirm with your doctor or pharmacist."
+            },
+            "hi": {
+              "usedFor": "यह कैप्सूल आमतौर पर पेट की एसिडिटी कम करने और पेट को अन्य दवाओं से बचाने के लिए दिया जाता है।",
+              "howAndWhen": "सुबह नाश्ते से 30 मिनट पहले 1 कैप्सूल पानी के साथ निगल लें।",
+              "whatToAvoid": "कैप्सूल को खोलें या चबाएं नहीं, पूरा निगलें।",
+              "whenToCallDoctor": "तेज पेट दर्द या लगातार दस्त होने पर डॉक्टर को बताएं। कृपया अपने डॉक्टर या फ़ार्मासिस्ट से पुष्टि जरूर करें।"
+            },
+            "as": {
+              "usedFor": "এই কেপচুলটো সাধাৰণতে পেটৰ এচিডিটি কমাবলৈ আৰু পেট সুৰক্ষিত ৰাখিবলৈ দিয়া হয়।",
+              "howAndWhen": "ৰাতিপুৱা জলপান খোৱাৰ ৩০ মিনিট আগতে ১টা কেপচুল পানীৰে গিলি থওক।",
+              "whatToAvoid": "কেপচুলটো ভাঙি বা চোবাই নাখাব, গোটেইটো গিলি থওক।",
+              "whenToCallDoctor": "পেটত বেছি বিষ বা পাতল শৌচ হ’লে চিকিৎসকক জনাওক। অনুগ্ৰহ কৰি আপোনাৰ চিকিৎসক বা ফাৰ্মাচিষ্টৰ সৈতে নিশ্চিত কৰি ল’ব।"
+            },
+            "bn": {
+              "usedFor": "এই ক্যাপসুলটি সাধারণত পেটের অ্যাসিড কমাতে এবং গ্যাস্ট্রিক থেকে বাঁচাতে দেওয়া হয়।",
+              "howAndWhen": "সকালে নাস্তার ৩০ মিনিট আগে ১টি ক্যাপসুল পানি দিয়ে গিলে খাবেন।",
+              "whatToAvoid": "ক্যাপসুলটি ভেঙে বা চিবিয়ে খাবেন না, আস্ত গিলুন।",
+              "whenToCallDoctor": "তীব্র পেট ব্যথা বা পাতলা পায়খানা হলে ডাক্তারকে জানান। অনুগ্রহ করে আপনার ডাক্তার বা ফার্মাসিস্টের সাথে নিশ্চিত করে নিন।"
+            }
+          }
+        },
+        {
+          "name": "Tab Amoxicillin",
+          "activeIngredient": "amoxicillin",
+          "strength": "500mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "1-1-1",
+          "slots": ["morning", "afternoon", "night"],
+          "foodTiming": "after_food",
+          "durationDays": 5,
+          "specialInstructions": "Complete the full 5-day course even if you feel better.",
+          "confidence": "high",
+          "explanations": {
+            "en": {
+              "usedFor": "Generally used as an antibiotic to clear bacterial throat or chest infections.",
+              "howAndWhen": "Take 1 tablet in the morning, afternoon, and night after food for 5 days.",
+              "whatToAvoid": "Do not stop early even if your fever goes away, so the infection does not return.",
+              "whenToCallDoctor": "Stop and call a doctor immediately if you get a skin rash, itching, or trouble breathing. Please confirm with your doctor or pharmacist."
+            },
+            "hi": {
+              "usedFor": "यह एक एंटीबायोटिक है जो गले या छाती के बैक्टीरियल संक्रमण को ठीक करने में मदद करती है।",
+              "howAndWhen": "सुबह, दोपहर और रात को खाने के बाद 1-1 गोली पूरे 5 दिन तक लें।",
+              "whatToAvoid": "बुखार उतरने पर भी दवा बीच में न छोड़ें, वरना संक्रमण वापस आ सकता है।",
+              "whenToCallDoctor": "यदि शरीर पर लाल दाने, खुजली या सांस लेने में दिक्कत हो तो तुरंत डॉक्टर से मिलें। कृपया अपने डॉक्टर या फ़ार्मासिस्ट से पुष्टि जरूर करें।"
+            },
+            "as": {
+              "usedFor": "এইবিধ এণ্টিবায়’টিক দৰৱ যি ডিঙি বা বুকুৰ সংক্ৰমণ ভাল কৰাত সহায় কৰে।",
+              "howAndWhen": "ৰাতিপুৱা, দুপৰীয়া আৰু ৰাতি আহাৰ খোৱাৰ পাছত ১টাকৈ বড়ি ৫ দিনলৈ খাওক।",
+              "whatToAvoid": "জ্বৰ কমিলেও দৰৱ আধাতে বন্ধ নকৰিব, সম্পূৰ্ণ ৫ দিন খাওক।",
+              "whenToCallDoctor": "গা চিকমিকোৱা, খজুৱতি বা উশাহ লওঁতে কষ্ট হ’লে লগে লগে চিকিৎসকক জনাওক। অনুগ্ৰহ কৰি আপোনাৰ চিকিৎসক বা ফাৰ্মাচিষ্টৰ সৈতে নিশ্চিত কৰি ল’ব।"
+            },
+            "bn": {
+              "usedFor": "এটি একটি অ্যান্টিবায়োটিক যা গলা বা বুকের ব্যাকটেরিয়ার সংক্রমণ সারাতে সাহায্য করে।",
+              "howAndWhen": "সকাল, দুপুর ও রাতে খাওয়ার পর ১টি করে ট্যাবলেট পুরো ৫ দিন খাবেন।",
+              "whatToAvoid": "জ্বর কমে গেলেও মাঝপথে ওষুধ বন্ধ করবেন না, কোর্স শেষ করুন।",
+              "whenToCallDoctor": "ত্বকে র‍্যাশ, চুলকানি বা শ্বাসকষ্ট হলে সাথে সাথে ডাক্তারের কাছে যান। অনুগ্রহ করে আপনার ডাক্তার বা ফার্মাসিস্টের সাথে নিশ্চিত করে নিন।"
+            }
+          }
+        },
+        {
+          "name": "Tab Paracetamol (Dolo 650)",
+          "activeIngredient": "paracetamol",
+          "strength": "650mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "1-1-1",
+          "slots": ["morning", "afternoon", "night"],
+          "foodTiming": "after_food",
+          "durationDays": 3,
+          "specialInstructions": "For fever and body ache; keep at least 6 hours between doses.",
+          "confidence": "high",
+          "explanations": {
+            "en": {
+              "usedFor": "Generally used to bring down fever and ease headache or body pain.",
+              "howAndWhen": "Take 1 tablet up to three times a day after food when fever or pain is present.",
+              "whatToAvoid": "Do not take other fever medicines containing Paracetamol at the same time.",
+              "whenToCallDoctor": "Contact a doctor if high fever lasts more than 3 days. Please confirm with your doctor or pharmacist."
+            },
+            "hi": {
+              "usedFor": "यह दवा आमतौर पर बुखार उतारने और शरीर या सिर के दर्द को कम करने के लिए दी जाती है।",
+              "howAndWhen": "सुबह, दोपहर और रात खाने के बाद 1 गोली लें, दो गोलियों के बीच कम से कम 6 घंटे रखें।",
+              "whatToAvoid": "इसके साथ पैरासिटामोल वाली कोई दूसरी बुखार या दर्द की गोली न लें।",
+              "whenToCallDoctor": "अगर तेज बुखार 3 दिन से ज्यादा रहे तो डॉक्टर से संपर्क करें। कृपया अपने डॉक्टर या फ़ार्मासिस्ट से पुष्टि जरूर करें।"
+            },
+            "as": {
+              "usedFor": "এই দৰৱবিধ সাধাৰণতে জ্বৰ কমাবলৈ আৰু গাৰ বা মূৰৰ বিষ উপশম কৰিবলৈ দিয়া হয়।",
+              "howAndWhen": "ৰাতিপুৱা, দুপৰীয়া আৰু ৰাতি আহাৰ খোৱাৰ পাছত ১টা বড়ি খাওক।",
+              "whatToAvoid": "একেলগে পেৰাচিটামল থকা অন্য জ্বৰৰ দৰৱ নাখাব।",
+              "whenToCallDoctor": "যদি ৩ দিনতকৈ বেছি সময় জ্বৰ থাকে তেন্তে চিকিৎসকক জনাওক। অনুগ্ৰহ কৰি আপোনাৰ চিকিৎসক বা ফাৰ্মাচিষ্টৰ সৈতে নিশ্চিত কৰি ল’ব।"
+            },
+            "bn": {
+              "usedFor": "এই ওষুধটি সাধারণত জ্বর কমাতে এবং গা-হাত-পা বা মাথাব্যথা দূর করতে দেওয়া হয়।",
+              "howAndWhen": "সকাল, দুপুর ও রাতে খাওয়ার পর ১টি ট্যাবলেট খাবেন।",
+              "whatToAvoid": "একই সাথে প্যারাসিটামলযুক্ত অন্য কোনো ওষুধ খাবেন না।",
+              "whenToCallDoctor": "৩ দিনের বেশি জ্বর থাকলে অবশ্যই ডাক্তার দেখান। অনুগ্রহ করে আপনার ডাক্তার বা ফার্মাসিস্টের সাথে নিশ্চিত করে নিন।"
+            }
+          }
+        },
+        {
+          "name": "Tab Cetirizine",
+          "activeIngredient": "cetirizine",
+          "strength": "10mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "0-0-1",
+          "slots": ["night"],
+          "foodTiming": "after_food",
+          "durationDays": 5,
+          "specialInstructions": "May cause sleepiness; take at bedtime.",
+          "confidence": "medium",
+          "unclearReason": "Handwritten strength '10mg' should be double-checked on medicine strip.",
+          "explanations": {
+            "en": {
+              "usedFor": "Generally used to stop sneezing, runny nose, and skin itching.",
+              "howAndWhen": "Take 1 tablet at night before sleeping, after dinner.",
+              "whatToAvoid": "Avoid driving or working with heavy machines because it can make you sleepy.",
+              "whenToCallDoctor": "Tell a doctor if breathing gets tight or symptoms worsen. Please confirm with your doctor or pharmacist."
+            },
+            "hi": {
+              "usedFor": "यह दवा आमतौर पर छींक, बहती नाक और एलर्जी की खुजली रोकने के लिए दी जाती है।",
+              "howAndWhen": "रात में खाने के बाद सोने से पहले 1 गोली लें।",
+              "whatToAvoid": "इसे खाने के बाद नींद आ सकती है, इसलिए गाड़ी न चलाएं।",
+              "whenToCallDoctor": "अगर सांस लेने में दिक्कत हो या आराम न मिले तो डॉक्टर से पूछें। कृपया अपने डॉक्टर या फ़ार्मासिस्ट से पुष्टि जरूर करें।"
+            },
+            "as": {
+              "usedFor": "এই দৰৱবিধ সাধাৰণতে হাঁচি, নাক বৈ থকা আৰু এলাৰ্জিৰ খজুৱতি কমাবলৈ দিয়া হয়।",
+              "howAndWhen": "ৰাতি আহাৰ খোৱাৰ পাছত শোৱাৰ আগতে ১টা বড়ি খাওক।",
+              "whatToAvoid": "ইয়াক খালে টোপনি আহিব পাৰে, সেয়ে গাড়ী বা মেচিন নচলাব।",
+              "whenToCallDoctor": "উশাহ লোৱাত কষ্ট হ’লে বা লক্ষণ বাঢ়িলে চিকিৎসকক জনাওক। অনুগ্ৰহ কৰি আপোনাৰ চিকিৎসক বা ফাৰ্মাচিষ্টৰ সৈতে নিশ্চিত কৰি ল’ব।"
+            },
+            "bn": {
+              "usedFor": "এই ওষুধটি সাধারণত হাঁচি, সর্দি ও অ্যালার্জির চুলকানি কমাতে দেওয়া হয়।",
+              "howAndWhen": "রাতে খাওয়ার পর ঘুমানোর আগে ১টি ট্যাবলেট খাবেন।",
+              "whatToAvoid": "এটি খেলে ঘুম পেতে পারে, তাই গাড়ি বা যন্ত্রপাতি চালাবেন না।",
+              "whenToCallDoctor": "শ্বাসকষ্ট হলে বা সমস্যা বাড়লে ডাক্তারের পরামর্শ নিন। অনুগ্রহ করে আপনার ডাক্তার বা ফার্মাসিস্টের সাথে নিশ্চিত করে নিন।"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "sample-safety",
+      "title": "Joint Pain & Fever OPD (Safety Check Demo)",
+      "subtitle": "4 medicines · Triggers duplicate & interaction alerts",
+      "imageUrl": "/samples/sample-safety.jpg",
+      "clinicTitle": "General Physician OPD — Dr. A. Khan",
+      "overallConfidence": "medium",
+      "medicines": [
+        {
+          "name": "Tab Ibuprofen",
+          "activeIngredient": "ibuprofen",
+          "strength": "400mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "1-0-1",
+          "slots": ["morning", "night"],
+          "foodTiming": "after_food",
+          "durationDays": 5,
+          "specialInstructions": "Take only after a full meal.",
+          "confidence": "high"
+        },
+        {
+          "name": "Tab Aspirin",
+          "activeIngredient": "aspirin",
+          "strength": "75mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "1-0-0",
+          "slots": ["morning"],
+          "foodTiming": "after_food",
+          "durationDays": 15,
+          "specialInstructions": "Take after breakfast.",
+          "confidence": "high"
+        },
+        {
+          "name": "Tab Paracetamol",
+          "activeIngredient": "paracetamol",
+          "strength": "500mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "1-1-0",
+          "slots": ["morning", "afternoon"],
+          "foodTiming": "after_food",
+          "durationDays": 5,
+          "specialInstructions": "For fever or mild pain.",
+          "confidence": "high"
+        },
+        {
+          "name": "Tab Combiflam (Ibuprofen + Paracetamol)",
+          "activeIngredient": "ibuprofen, paracetamol",
+          "strength": "400mg + 325mg",
+          "doseAmount": "1 tablet",
+          "frequencyCode": "0-0-1",
+          "slots": ["night"],
+          "foodTiming": "after_food",
+          "durationDays": 3,
+          "specialInstructions": "At night for pain.",
+          "confidence": "low",
+          "unclearReason": "Combiflam overlaps with both Ibuprofen and Paracetamol already listed above — please verify with pharmacist."
+        }
+      ]
+    }
+  ]
+}
