@@ -10,12 +10,14 @@ import {
   SkipForward,
   Square,
   Volume2,
+  PackagePlus,
 } from 'lucide-react';
 import type {
   CaregiverProfile,
   DoseScheduleItem,
   DoseSlot,
   FoodTiming,
+  MedicineRecord,
   SupportedLanguage,
 } from '../types';
 import { TRANSLATIONS } from '../i18n/translations';
@@ -34,6 +36,9 @@ interface ScheduleViewProps {
   onEnableNotifications: () => void;
   onDoseAction: (doseId: number, action: 'taken' | 'skipped') => void;
   onGoToScan: () => void;
+  lowSupplyMedicines?: MedicineRecord[];
+  onRequestRefill?: (medicineNames: string[]) => Promise<void>;
+  onGoToMedicines?: () => void;
 }
 
 const SLOT_ORDER: DoseSlot[] = ['morning', 'afternoon', 'night'];
@@ -187,8 +192,13 @@ export const ScheduleView: React.FC<ScheduleViewProps> = ({
   onEnableNotifications,
   onDoseAction,
   onGoToScan,
+  lowSupplyMedicines = [],
+  onRequestRefill,
+  onGoToMedicines,
 }) => {
   const t = TRANSLATIONS[language];
+  const [refillBusy, setRefillBusy] = useState(false);
+  const [refillDone, setRefillDone] = useState(false);
   const [callBannerOpen, setCallBannerOpen] = useState(false);
 
   const takenCount = schedule.filter((d) => d.status === 'taken').length;
@@ -630,6 +640,89 @@ export const ScheduleView: React.FC<ScheduleViewProps> = ({
             );
           })}
         </div>
+      )}
+
+      {lowSupplyMedicines.length > 0 && (
+        <section className="rounded-3xl border border-amber-300 bg-amber-50/90 p-5 space-y-3">
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex items-start gap-3">
+              <PackagePlus className="h-6 w-6 shrink-0 text-amber-800 mt-0.5" aria-hidden="true" />
+              <div>
+                <h2 className="text-base font-bold text-amber-950">{t.refillAlertTitle}</h2>
+                <p className="text-sm text-amber-900 mt-0.5">
+                  {lowSupplyMedicines
+                    .map((m) => {
+                      const rem = m.refillStatus?.daysRemaining ?? m.durationDays;
+                      return `${m.name} ${m.strength} (${
+                        rem === 0 ? t.lastDayLabel : `${rem} ${t.daysLeftLabel}`
+                      })`;
+                    })
+                    .join(' · ')}
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                const text = lowSupplyMedicines
+                  .map((m) => {
+                    const rem = m.refillStatus?.daysRemaining ?? m.durationDays;
+                    return `${m.name} ${m.strength}, ${
+                      rem === 0 ? t.lastDayLabel : `${rem} ${t.daysLeftLabel}`
+                    }`;
+                  })
+                  .join('. ');
+                audioManager.playText(
+                  'today-refill-voice',
+                  `${t.refillAlertTitle}. ${text}. ${t.mandatoryDoctorLine}`,
+                  language
+                );
+              }}
+              aria-label="Listen to refill reminder"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white border border-amber-300 text-amber-900 hover:bg-amber-100"
+            >
+              {playingKey === 'today-refill-voice' ? (
+                <Square className="h-4 w-4 fill-current" aria-hidden="true" />
+              ) : (
+                <Volume2 className="h-5 w-5" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+          <div className="flex flex-wrap items-center gap-2.5">
+            {onRequestRefill && (
+              <button
+                type="button"
+                disabled={refillBusy}
+                onClick={async () => {
+                  setRefillBusy(true);
+                  try {
+                    await onRequestRefill(
+                      lowSupplyMedicines.map((m) => `${m.name} ${m.strength}`.trim())
+                    );
+                    setRefillDone(true);
+                  } finally {
+                    setRefillBusy(false);
+                  }
+                }}
+                className={`inline-flex min-h-[48px] items-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-bold text-white transition-colors ${
+                  refillDone ? 'bg-emerald-700' : 'bg-amber-800 hover:bg-amber-900'
+                }`}
+              >
+                <PackagePlus className="h-4 w-4" aria-hidden="true" />
+                <span>{refillDone ? t.refillSentBadge : t.askCaregiverRefillBtn}</span>
+              </button>
+            )}
+            {onGoToMedicines && (
+              <button
+                type="button"
+                onClick={onGoToMedicines}
+                className="inline-flex min-h-[48px] items-center rounded-2xl border border-amber-300 bg-white px-4 py-2.5 text-sm font-bold text-amber-950 hover:bg-amber-100"
+              >
+                {t.tabs.medicines}
+              </button>
+            )}
+          </div>
+        </section>
       )}
     </div>
   );

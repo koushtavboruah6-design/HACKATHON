@@ -130,7 +130,7 @@
           "frequencyCode": "0-1-0",
           "slots": ["afternoon"],
           "foodTiming": "after_food",
-          "durationDays": 30,
+          "durationDays": 8,
           "specialInstructions": "Take after lunch to protect stomach.",
           "confidence": "high",
           "explanations": {

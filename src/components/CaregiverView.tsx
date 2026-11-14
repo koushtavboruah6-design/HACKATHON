@@ -227,19 +227,32 @@ export const CaregiverView: React.FC<CaregiverViewProps> = ({
           <p className="text-sm text-slate-600">No missed-dose alerts triggered yet.</p>
         ) : (
           <div className="space-y-3">
-            {alerts.map((alert) => (
-              <div
-                key={alert.id}
-                className="rounded-2xl border border-red-200 bg-red-50/60 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
-              >
-                <div className="space-y-1">
-                  <p className="text-sm font-bold text-red-950">{alert.message}</p>
-                  <p className="text-xs text-red-800 tabular-nums">
-                    Channel: {alert.channel.toUpperCase()} · Date: {alert.scheduledFor}
-                  </p>
+            {alerts.map((alert) => {
+              const isRefill = alert.medicineName.startsWith('Refill:');
+              return (
+                <div
+                  key={alert.id}
+                  className={`rounded-2xl border p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 ${
+                    isRefill
+                      ? 'border-amber-200 bg-amber-50/70'
+                      : 'border-red-200 bg-red-50/60'
+                  }`}
+                >
+                  <div className="space-y-1">
+                    <p className={`text-sm font-bold ${isRefill ? 'text-amber-950' : 'text-red-950'}`}>
+                      {alert.message}
+                    </p>
+                    <p
+                      className={`text-xs tabular-nums ${
+                        isRefill ? 'text-amber-900' : 'text-red-800'
+                      }`}
+                    >
+                      Channel: {alert.channel.toUpperCase()} · Date: {alert.scheduledFor}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </section>

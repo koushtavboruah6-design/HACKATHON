@@ -3,6 +3,7 @@ import express from 'express';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import {
+  addMedicineRefillDays,
   getActivePrescriptionAndMedicines,
   getCaregiverAlerts,
   getCaregiverProfile,
@@ -29,6 +30,7 @@ import {
 import {
   checkAndDispatchMissedDoseAlerts,
   dispatchEmergencyCaregiverAlert,
+  dispatchRefillCaregiverAlert,
   isTwilioConfigured,
 } from './server/notifications.js';
 import { evaluatePrescriptionSafety, getCatalogInfo } from './server/safety.js';
@@ -389,6 +391,44 @@ app.post('/api/emergency/trigger', async (_req, res) => {
   } catch (err) {
     console.error('Emergency trigger error:', err);
     res.status(500).json({ error: 'Could not send emergency caregiver alert.' });
+  }
+});
+
+app.post('/api/refill/request', async (req, res) => {
+  try {
+    const body = req.body as { medicineNames?: string[] };
+    const { medicines } = getActivePrescriptionAndMedicines(1);
+    const lowNames =
+      Array.isArray(body?.medicineNames) && body.medicineNames.length > 0
+        ? body.medicineNames
+        : medicines
+            .filter((m) => m.refillStatus?.isLow)
+            .map((m) => `${m.name} ${m.strength}`.trim());
+
+    const refillAlert = await dispatchRefillCaregiverAlert(1, lowNames);
+    res.json({
+      refillAlert,
+      bootstrap: buildBootstrapPayload(),
+    });
+  } catch (err) {
+    console.error('Refill request error:', err);
+    res.status(500).json({ error: 'Could not send refill request to caregiver.' });
+  }
+});
+
+app.post('/api/medicines/:id/refill', (req, res) => {
+  try {
+    const medId = Number(req.params.id);
+    if (!Number.isFinite(medId) || medId <= 0) {
+      res.status(400).json({ error: 'Invalid medicine ID.' });
+      return;
+    }
+    const extraDays = Number(req.body?.extraDays) || 10;
+    addMedicineRefillDays(medId, Math.min(Math.max(extraDays, 1), 90));
+    res.json(buildBootstrapPayload());
+  } catch (err) {
+    console.error('Medicine refill update error:', err);
+    res.status(500).json({ error: 'Could not record medicine refill.' });
   }
 });
 

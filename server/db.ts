@@ -17,6 +17,7 @@ import type {
   MedicineExplanation,
   MedicineRecord,
   PatientProfile,
+  RefillStatus,
   SupportedLanguage,
   WeeklySummaryDay,
 } from './types.js';
@@ -144,6 +145,16 @@ export function initDatabase(): void {
       FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     );
 
+    CREATE TABLE IF NOT EXISTS refill_alerts (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL,
+      medicine_name TEXT NOT NULL,
+      channel TEXT NOT NULL DEFAULT 'in_app',
+      message TEXT NOT NULL,
+      created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+    );
+
     CREATE TABLE IF NOT EXISTS app_settings (
       key TEXT PRIMARY KEY,
       value TEXT NOT NULL
@@ -151,6 +162,29 @@ export function initDatabase(): void {
   `);
 
   seedDemoDataIfEmpty();
+  ensureSeededRefillCountdownDemo();
+}
+
+function ensureSeededRefillCountdownDemo(): void {
+  const done = db.prepare(`SELECT value FROM app_settings WHERE key = 'refill_demo_v2'`).get() as
+    | { value: string }
+    | undefined;
+  if (done?.value === 'true') return;
+
+  const latestRx = db
+    .prepare(
+      `SELECT id, title, source_type FROM prescriptions WHERE user_id = 1 ORDER BY id DESC LIMIT 1`
+    )
+    .get() as { id: number; title: string; source_type: string } | undefined;
+
+  if (latestRx && latestRx.source_type === 'sample' && latestRx.title.includes('Guwahati')) {
+    const sixDaysAgo = `${daysAgoDateString(6)} 08:00:00`;
+    db.prepare(`UPDATE prescriptions SET created_at = ? WHERE id = ?`).run(sixDaysAgo, latestRx.id);
+    db.prepare(
+      `UPDATE medicines SET duration_days = 8 WHERE prescription_id = ? AND name LIKE '%Aspirin%' AND duration_days = 30`
+    ).run(latestRx.id);
+  }
+  db.prepare(`INSERT OR REPLACE INTO app_settings (key, value) VALUES ('refill_demo_v2', 'true')`).run();
 }
 
 function seedDemoDataIfEmpty(): void {
@@ -232,8 +266,11 @@ function seedDemoDataIfEmpty(): void {
       });
     }
 
-    // Also pre-mark today's morning doses as pending so demo user can tap Taken/Skip immediately
-    void rxId;
+    // Align seeded prescription date with the 6-day adherence history so Tab Aspirin shows 2 days remaining
+    db.prepare(`UPDATE prescriptions SET created_at = ? WHERE id = ?`).run(
+      `${daysAgoDateString(6)} 08:00:00`,
+      rxId
+    );
   }
 }
 
@@ -429,6 +466,31 @@ export function saveConfirmedPrescription(
   return prescriptionId;
 }
 
+function computeRefillStatus(durationDays: number, createdAt: string): RefillStatus {
+  const todayStr = todayDateString();
+  const todayMs = new Date(`${todayStr}T00:00:00`).getTime();
+  const createdDay = createdAt.slice(0, 10);
+  const createdMs = new Date(`${createdDay}T00:00:00`).getTime();
+  const diffDays = Number.isFinite(createdMs)
+    ? Math.max(0, Math.floor((todayMs - createdMs) / 86_400_000))
+    : 0;
+  const daysRemaining = Math.max(0, durationDays - diffDays);
+  return {
+    durationDays,
+    daysElapsed: diffDays,
+    daysRemaining,
+    isLow: daysRemaining <= 3,
+    isEmpty: daysRemaining === 0,
+  };
+}
+
+export function addMedicineRefillDays(medicineId: number, extraDays = 10): void {
+  db.prepare(`UPDATE medicines SET duration_days = duration_days + ? WHERE id = ?`).run(
+    extraDays,
+    medicineId
+  );
+}
+
 export function getActivePrescriptionAndMedicines(patientId = 1): {
   prescription: { id: number; title: string; sourceType: string; overallConfidence: ConfidenceLevel; createdAt: string } | null;
   medicines: MedicineRecord[];
@@ -481,6 +543,7 @@ export function getActivePrescriptionAndMedicines(patientId = 1): {
     safetyFlags: JSON.parse(r.safety_flags_json || '[]'),
     janAushadhi: getJanAushadhiAlternative(r.name, r.active_ingredient),
     visualAppearance: getMedicineVisualAppearance(r.name, r.active_ingredient, r.dose_amount),
+    refillStatus: computeRefillStatus(r.duration_days, rx.created_at),
   }));
 
   return {
@@ -722,7 +785,34 @@ export function getCaregiverAlerts(patientId = 1): CaregiverAlert[] {
     createdAt: r.created_at,
   }));
 
-  return [...emergencyMapped, ...doseMapped]
+  const refillRows = db
+    .prepare(
+      `SELECT id, medicine_name, channel, message, created_at
+       FROM refill_alerts
+       WHERE user_id = ?
+       ORDER BY id DESC
+       LIMIT 10`
+    )
+    .all(patientId) as Array<{
+    id: number;
+    medicine_name: string;
+    channel: 'whatsapp' | 'sms' | 'in_app';
+    message: string;
+    created_at: string;
+  }>;
+
+  const refillMapped: CaregiverAlert[] = refillRows.map((rf) => ({
+    id: 200000 + rf.id,
+    doseId: 0,
+    medicineName: `Refill: ${rf.medicine_name}`,
+    slot: 'morning',
+    scheduledFor: rf.created_at.slice(0, 10),
+    channel: rf.channel,
+    message: rf.message,
+    createdAt: rf.created_at,
+  }));
+
+  return [...emergencyMapped, ...refillMapped, ...doseMapped]
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
     .slice(0, 15);
 }

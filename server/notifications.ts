@@ -187,3 +187,31 @@ export async function dispatchEmergencyCaregiverAlert(
     caregiverName: caregiver.name,
   };
 }
+
+/**
+ * Notifies the primary caregiver that one or more medicine strips are running low
+ * and records the refill request in refill_alerts.
+ */
+export async function dispatchRefillCaregiverAlert(
+  patientId = 1,
+  medicineLabels: string[]
+): Promise<{ channel: 'whatsapp' | 'sms' | 'in_app'; message: string; caregiverName: string }> {
+  const patient = getPatientProfile(patientId);
+  const caregiver = getCaregiverProfile(patientId);
+
+  const medSummary =
+    medicineLabels.length > 0 ? medicineLabels.join(', ') : 'Active prescription medicines';
+  const alertText = `MediSathi Refill Alert: ${patient.name} is running low on ${medSummary}. Please help pick up a new strip (ask pharmacist about Jan Aushadhi generic options if advised).`;
+  const channel = await sendTwilioAlert(caregiver.phone, alertText);
+
+  db.prepare(
+    `INSERT INTO refill_alerts (user_id, medicine_name, channel, message)
+     VALUES (?, ?, ?, ?)`
+  ).run(patientId, medSummary, channel, alertText);
+
+  return {
+    channel,
+    message: alertText,
+    caregiverName: caregiver.name,
+  };
+}

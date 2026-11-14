@@ -12,6 +12,8 @@ import {
   X,
   Loader2,
   IndianRupee,
+  PackagePlus,
+  CheckCircle2,
 } from 'lucide-react';
 import type {
   MedicineRecord,
@@ -29,6 +31,8 @@ interface MedicinesViewProps {
   safetyWarnings: SafetyWarning[];
   playingKey: string | null;
   onGoToScan: () => void;
+  onRequestRefill: (medicineNames: string[]) => Promise<void>;
+  onMarkRefilled: (medicineId: number) => Promise<void>;
 }
 
 export const MedicinesView: React.FC<MedicinesViewProps> = ({
@@ -38,6 +42,8 @@ export const MedicinesView: React.FC<MedicinesViewProps> = ({
   safetyWarnings,
   playingKey,
   onGoToScan,
+  onRequestRefill,
+  onMarkRefilled,
 }) => {
   const t = TRANSLATIONS[language];
   const [qaOpen, setQaOpen] = useState(false);
@@ -46,6 +52,9 @@ export const MedicinesView: React.FC<MedicinesViewProps> = ({
   const [qaLoading, setQaLoading] = useState(false);
   const [qaError, setQaError] = useState<string | null>(null);
   const [recording, setRecording] = useState(false);
+  const [refillSending, setRefillSending] = useState(false);
+  const [refillSent, setRefillSent] = useState(false);
+  const [refillingId, setRefillingId] = useState<number | null>(null);
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
@@ -136,6 +145,27 @@ export const MedicinesView: React.FC<MedicinesViewProps> = ({
     (w) => w.severity === 'high' || w.severity === 'moderate'
   );
   const uncheckedWarnings = safetyWarnings.filter((w) => w.severity === 'unchecked');
+  const lowSupplyMedicines = medicines.filter((m) =>
+    m.refillStatus ? m.refillStatus.isLow : m.durationDays <= 3
+  );
+
+  const handleRequestRefillClick = async () => {
+    if (refillSending || lowSupplyMedicines.length === 0) return;
+    setRefillSending(true);
+    try {
+      await onRequestRefill(
+        lowSupplyMedicines.map((m) => `${m.name} ${m.strength}`.trim())
+      );
+      setRefillSent(true);
+      audioManager.playText(
+        'refill-sent-voice',
+        `${t.refillSentBadge}. ${t.mandatoryDoctorLine}`,
+        language
+      );
+    } finally {
+      setRefillSending(false);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -188,6 +218,82 @@ export const MedicinesView: React.FC<MedicinesViewProps> = ({
           </div>
         </div>
       </section>
+
+      {/* Low-Supply Refill Alert Banner */}
+      {lowSupplyMedicines.length > 0 && (
+        <section className="rounded-3xl border border-amber-300 bg-amber-50/90 p-5 space-y-3">
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex items-start gap-3">
+              <PackagePlus className="h-6 w-6 shrink-0 text-amber-800 mt-0.5" aria-hidden="true" />
+              <div>
+                <h2 className="text-base sm:text-lg font-bold text-amber-950">
+                  {t.refillAlertTitle}
+                </h2>
+                <p className="text-sm text-amber-900 mt-0.5">
+                  {lowSupplyMedicines
+                    .map((m) => {
+                      const rem = m.refillStatus?.daysRemaining ?? m.durationDays;
+                      return `${m.name} ${m.strength} (${
+                        rem === 0 ? t.lastDayLabel : `${rem} ${t.daysLeftLabel}`
+                      })`;
+                    })
+                    .join(' · ')}
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                const spokenList = lowSupplyMedicines
+                  .map((m) => {
+                    const rem = m.refillStatus?.daysRemaining ?? m.durationDays;
+                    return `${m.name} ${m.strength}, ${
+                      rem === 0 ? t.lastDayLabel : `${rem} ${t.daysLeftLabel}`
+                    }`;
+                  })
+                  .join('. ');
+                audioManager.playText(
+                  'refill-alert-voice',
+                  `${t.refillAlertTitle}. ${spokenList}. ${t.mandatoryDoctorLine}`,
+                  language
+                );
+              }}
+              aria-label="Listen to refill reminder"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white border border-amber-300 text-amber-900 hover:bg-amber-100"
+            >
+              {playingKey === 'refill-alert-voice' ? (
+                <Square className="h-4 w-4 fill-current" aria-hidden="true" />
+              ) : (
+                <Volume2 className="h-5 w-5" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <button
+              type="button"
+              onClick={handleRequestRefillClick}
+              disabled={refillSending}
+              className={`inline-flex min-h-[48px] items-center gap-2 rounded-2xl px-5 py-2.5 text-sm font-bold transition-colors ${
+                refillSent
+                  ? 'bg-emerald-700 text-white'
+                  : 'bg-amber-800 text-white hover:bg-amber-900'
+              } disabled:opacity-60`}
+            >
+              {refillSending ? (
+                <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+              ) : refillSent ? (
+                <CheckCircle2 className="h-5 w-5" aria-hidden="true" />
+              ) : (
+                <PackagePlus className="h-5 w-5" aria-hidden="true" />
+              )}
+              <span>{refillSent ? t.refillSentBadge : t.askCaregiverRefillBtn}</span>
+            </button>
+            <span className="text-xs font-medium text-amber-900">{t.mandatoryDoctorLine}</span>
+          </div>
+        </section>
+      )}
 
       {/* Safety Warnings Section */}
       <section className="space-y-3">
@@ -407,6 +513,77 @@ export const MedicinesView: React.FC<MedicinesViewProps> = ({
                       {t.janAushadhiNotChecked}
                     </div>
                   )}
+
+                  {/* Refill Countdown Bar */}
+                  {(() => {
+                    const total = med.refillStatus?.durationDays ?? med.durationDays;
+                    const rem = med.refillStatus?.daysRemaining ?? med.durationDays;
+                    const isLow = med.refillStatus ? med.refillStatus.isLow : rem <= 3;
+                    const pct = total > 0 ? Math.min(100, Math.round((rem / total) * 100)) : 0;
+
+                    return (
+                      <div
+                        className={`rounded-2xl border p-3.5 space-y-2 ${
+                          isLow
+                            ? 'border-amber-300 bg-amber-50/70'
+                            : 'border-slate-200 bg-slate-50/70'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between gap-2 text-xs sm:text-sm">
+                          <span
+                            className={`font-bold tabular-nums ${
+                              rem === 0
+                                ? 'text-red-800'
+                                : isLow
+                                  ? 'text-amber-900'
+                                  : 'text-slate-700'
+                            }`}
+                          >
+                            {rem === 0 ? t.lastDayLabel : `${rem} ${t.daysLeftLabel}`}
+                          </span>
+                          <span className="text-xs text-slate-500 tabular-nums">
+                            {rem}/{total}d
+                          </span>
+                        </div>
+                        <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200">
+                          <div
+                            className={`h-full rounded-full transition-all ${
+                              rem === 0
+                                ? 'bg-red-600'
+                                : isLow
+                                  ? 'bg-amber-600'
+                                  : 'bg-teal-600'
+                            }`}
+                            style={{ width: `${Math.max(pct, 4)}%` }}
+                          />
+                        </div>
+                        {isLow && (
+                          <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                            <button
+                              type="button"
+                              disabled={refillingId === med.id}
+                              onClick={async () => {
+                                setRefillingId(med.id);
+                                try {
+                                  await onMarkRefilled(med.id);
+                                } finally {
+                                  setRefillingId(null);
+                                }
+                              }}
+                              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-xl border border-amber-400 bg-white px-3 text-xs font-bold text-amber-950 hover:bg-amber-100 disabled:opacity-60"
+                            >
+                              {refillingId === med.id ? (
+                                <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
+                              ) : (
+                                <PackagePlus className="h-3.5 w-3.5" aria-hidden="true" />
+                              )}
+                              <span>{t.markRefilledBtn}</span>
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })()}
                 </div>
               </article>
             );

@@ -65,6 +65,14 @@ export interface MedicineVisualAppearance {
   matchedFromCatalog: boolean;
 }
 
+export interface RefillStatus {
+  durationDays: number;
+  daysElapsed: number;
+  daysRemaining: number;
+  isLow: boolean;
+  isEmpty: boolean;
+}
+
 export interface MedicineRecord {
   id: number;
   prescriptionId: number;
@@ -83,6 +91,7 @@ export interface MedicineRecord {
   safetyFlags: SafetyWarning[];
   janAushadhi?: JanAushadhiOption | null;
   visualAppearance?: MedicineVisualAppearance | null;
+  refillStatus?: RefillStatus;
 }
 
 export interface DoseScheduleItem {

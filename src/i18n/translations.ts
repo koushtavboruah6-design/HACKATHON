@@ -105,6 +105,12 @@ export interface UIStrings {
   emergencyBtn: string;
   emergencyModalTitle: string;
   emergencyModalBody: string;
+  refillAlertTitle: string;
+  daysLeftLabel: string;
+  lastDayLabel: string;
+  askCaregiverRefillBtn: string;
+  refillSentBadge: string;
+  markRefilledBtn: string;
 }
 
 export const TRANSLATIONS: Record<SupportedLanguage, UIStrings> = {
@@ -176,6 +182,12 @@ export const TRANSLATIONS: Record<SupportedLanguage, UIStrings> = {
     emergencyBtn: 'Emergency',
     emergencyModalTitle: 'Emergency Alert Sent',
     emergencyModalBody: 'We notified your primary caregiver and prepared a direct phone call.',
+    refillAlertTitle: 'Medicine Strip Running Low',
+    daysLeftLabel: 'days left',
+    lastDayLabel: 'Last day today',
+    askCaregiverRefillBtn: 'Ask Caregiver to Refill',
+    refillSentBadge: 'Refill Request Sent',
+    markRefilledBtn: 'Got New Strip (+10d)',
   },
   hi: {
     appTagline: 'आपकी आवाज़ वाला दवा साथी',
@@ -245,6 +257,12 @@ export const TRANSLATIONS: Record<SupportedLanguage, UIStrings> = {
     emergencyBtn: 'आपात मदद',
     emergencyModalTitle: 'आपात संदेश भेजा गया',
     emergencyModalBody: 'हमने आपके देखभालकर्ता को तुरंत संदेश भेज दिया है। नीचे कॉल दबाएं।',
+    refillAlertTitle: 'दवा खत्म होने वाली है',
+    daysLeftLabel: 'दिन बाकी',
+    lastDayLabel: 'आज आखिरी दिन',
+    askCaregiverRefillBtn: 'देखभालकर्ता से दवा मंगवाएं',
+    refillSentBadge: 'संदेश भेज दिया गया',
+    markRefilledBtn: 'नई पत्ती मिल गई (+10 दिन)',
   },
   as: {
     appTagline: 'আপোনাৰ কণ্ঠৰ দৰৱৰ সংগী',
@@ -314,6 +332,12 @@ export const TRANSLATIONS: Record<SupportedLanguage, UIStrings> = {
     emergencyBtn: 'জৰুৰী সহায়',
     emergencyModalTitle: 'জৰুৰী বাৰ্তা পঠিওৱা হ’ল',
     emergencyModalBody: 'আপোনাৰ পৰিচৰ্যা কৰোঁতালৈ জৰুৰী বাৰ্তা পঠিওৱা হৈছে। ফোন কৰিবলৈ তলত টিপক।',
+    refillAlertTitle: 'দৰৱ শেষ হ’বলৈ ধৰিছে',
+    daysLeftLabel: 'দিন বাকী',
+    lastDayLabel: 'আজি শেষ দিন',
+    askCaregiverRefillBtn: 'পৰিচৰ্যা কৰোঁতাক দৰৱ আনিবলৈ কওক',
+    refillSentBadge: 'অনুৰোধ পঠিওৱা হ’ল',
+    markRefilledBtn: 'নতুন দৰৱ পালোঁ (+১০ দিন)',
   },
   bn: {
     appTagline: 'আপনার কণ্ঠের ওষুধের সাথী',
@@ -383,5 +407,11 @@ export const TRANSLATIONS: Record<SupportedLanguage, UIStrings> = {
     emergencyBtn: 'জরুরি সাহায্য',
     emergencyModalTitle: 'জরুরি বার্তা পাঠানো হয়েছে',
     emergencyModalBody: 'আপনার যত্নকারীকে জরুরি বার্তা পাঠানো হয়েছে। কল করতে নিচে ট্যাপ করুন।',
+    refillAlertTitle: 'ওষুধ শেষ হয়ে আসছে',
+    daysLeftLabel: 'দিন বাকি',
+    lastDayLabel: 'আজ শেষ দিন',
+    askCaregiverRefillBtn: 'যত্নকারীকে ওষুধ আনতে বলুন',
+    refillSentBadge: 'অনুরোধ পাঠানো হয়েছে',
+    markRefilledBtn: 'নতুন পাতা পেয়েছি (+১০ দিন)',
   },
 };

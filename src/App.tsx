@@ -282,6 +282,38 @@ export function App() {
     }
   };
 
+  const handleRequestRefill = async (medicineNames: string[]) => {
+    try {
+      const resp = await fetch('/api/refill/request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ medicineNames }),
+      });
+      if (resp.ok) {
+        const result = (await resp.json()) as { bootstrap: BootstrapPayload };
+        applyPayload(result.bootstrap);
+      }
+    } catch {
+      // ignore offline
+    }
+  };
+
+  const handleMarkRefilled = async (medicineId: number) => {
+    try {
+      const resp = await fetch(`/api/medicines/${medicineId}/refill`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ extraDays: 10 }),
+      });
+      if (resp.ok) {
+        const updated = (await resp.json()) as BootstrapPayload;
+        applyPayload(updated);
+      }
+    } catch {
+      // ignore offline
+    }
+  };
+
   if (loading && !data) {
     return (
       <div className="min-h-screen bg-[#F8FAF9] flex flex-col items-center justify-center gap-3 p-6">
@@ -468,6 +500,11 @@ export function App() {
             onEnableNotifications={handleEnableNotifications}
             onDoseAction={handleDoseAction}
             onGoToScan={() => setActiveTab('scan')}
+            lowSupplyMedicines={data.medicines.filter((m) =>
+              m.refillStatus ? m.refillStatus.isLow : m.durationDays <= 3
+            )}
+            onRequestRefill={handleRequestRefill}
+            onGoToMedicines={() => setActiveTab('medicines')}
           />
         )}
 
@@ -491,6 +528,8 @@ export function App() {
             safetyWarnings={data.safetyWarnings}
             playingKey={playingKey}
             onGoToScan={() => setActiveTab('scan')}
+            onRequestRefill={handleRequestRefill}
+            onMarkRefilled={handleMarkRefilled}
           />
         )}
 
